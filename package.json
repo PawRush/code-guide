@@ -1,0 +1,26 @@
+{
+  "name": "code-guide",
+  "version": "1.0.0",
+  "description": "<h3 align=\"center\">   <a href=\"https://codeguide.co/\">     <img src=\"code-guide-logo.png\" alt=\"Code Guide logo\" width=\"192\" height=\"192\">   </a>   <br>   Code Guide </h3>",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PawRush/code-guide.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PawRush/code-guide/issues"
+  },
+  "homepage": "https://github.com/PawRush/code-guide#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0"
+  }
+}
