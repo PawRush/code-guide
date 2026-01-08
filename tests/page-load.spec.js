@@ -2,10 +2,13 @@ const { test, expect } = require('@playwright/test');
 
 test.describe('Page Load and Content Tests', () => {
   test('should load the homepage successfully', async ({ page }) => {
-    await page.goto('/');
+    const response = await page.goto('/');
 
     // Check that the page loads with 200 status
-    expect(page.url()).toBe('http://localhost:4000/');
+    expect(response.status()).toBe(200);
+
+    // Verify the URL ends with '/' (works for any base URL)
+    expect(page.url()).toMatch(/\/$/);
 
     // Verify page title
     await expect(page).toHaveTitle('Code Guide by @mdo');
