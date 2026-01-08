@@ -13,7 +13,7 @@ module.exports = defineConfig({
   reporter: 'html',
 
   use: {
-    baseURL: 'http://localhost:4000',
+    baseURL: process.env.BASE_URL ?? 'http://localhost:4000',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },
@@ -25,9 +25,11 @@ module.exports = defineConfig({
     },
   ],
 
-  webServer: {
-    command: 'echo "Jekyll server should already be running on port 4000"',
-    port: 4000,
-    reuseExistingServer: true,
-  },
+  webServer: process.env.BASE_URL
+    ? undefined
+    : {
+        command: 'echo "Jekyll server should already be running on port 4000"',
+        port: 4000,
+        reuseExistingServer: true,
+      },
 });
