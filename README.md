@@ -14,6 +14,12 @@
 
 ---
 
+## Deployment
+
+Deployed at: https://d32i42jy8p3t7z.cloudfront.net, using AWS CDK with CloudFront and S3.
+
+See [`./DEPLOYMENT.md`](./DEPLOYMENT.md) for deployment details and [`./AGENTS.md`](./AGENTS.md) for working with AI coding agents.
+
 ## Setup
 
 Code Guide is built on Jekyll and hosted on GitHub Pages. To install Jekyll:
