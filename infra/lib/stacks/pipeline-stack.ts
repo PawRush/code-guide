@@ -31,6 +31,7 @@ export class PipelineStack extends cdk.Stack {
       commands: [
         "npm install",
         "(cd infra && npm install)",
+        "gem install jekyll bundler",
         "jekyll build",
         "(cd infra && npm run build)",
         `(cd infra && npx -y cdk synth --context codeConnectionArn=${props.codeConnectionArn} --context repositoryName=${props.repositoryName} --context branchName=${props.branchName})`,
