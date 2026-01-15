@@ -11,7 +11,9 @@
     "cdk": "cdk",
     "deploy": "npm run deploy:preview",
     "deploy:preview": "cdk deploy --all --require-approval never --progress events",
+    "deploy:pipeline": "cdk deploy CodeGuidePipelineStack --context codeConnectionArn=arn:aws:codeconnections:us-east-1:492267476755:connection/b723259a-c57f-4245-9416-a59676b72429 --context repositoryName=PawRush/code-guide --context branchName=deploy-to-aws --require-approval never --progress events",
     "destroy": "cdk destroy --all",
+    "destroy:pipeline": "cdk destroy CodeGuidePipelineStack --context codeConnectionArn=arn:aws:codeconnections:us-east-1:492267476755:connection/b723259a-c57f-4245-9416-a59676b72429",
     "synth": "cdk synth",
     "diff": "cdk diff"
   },
