@@ -76,13 +76,16 @@ export class FrontendStack extends cdk.Stack {
 
     // Update distribution to add the function association
     const cfnDistribution = distribution.node.defaultChild as cdk.aws_cloudfront.CfnDistribution;
-    if (cfnDistribution.distributionConfig?.defaultCacheBehavior) {
-      cfnDistribution.distributionConfig.defaultCacheBehavior.functionAssociations = [
-        {
-          eventType: "viewer-request",
-          functionArn: urlRewriteFunction.functionArn,
-        },
-      ];
+    if (cfnDistribution.distributionConfig && typeof cfnDistribution.distributionConfig === "object") {
+      const config = cfnDistribution.distributionConfig as any;
+      if (config.defaultCacheBehavior) {
+        config.defaultCacheBehavior.functionAssociations = [
+          {
+            eventType: "viewer-request",
+            functionArn: urlRewriteFunction.functionArn,
+          },
+        ];
+      }
     }
 
     const websiteBucket = cloudfrontToS3.s3Bucket!;
